@@ -136,23 +136,32 @@ class _HomeState extends State<Home> {
               ],
             ),
           ),
-          const Divider(
-            color: Colors.black,
-            height: 25,
-            thickness: 2,
-            // indent: 5,
-            // endIndent: 5,
-          ),
           Container(
+            margin: const EdgeInsets.only(top: 20),
+            padding: const EdgeInsets.only(top: 10),
             height: 550,
             color: Colors.amber,
             child: ListView.builder(
               itemCount: syncData.length,
               itemBuilder: (context, index) {
                 // ProjectModel project = projectSnap.data[index];
-                return ListTile(
-                  title: Text("Nama barang: ${syncData[index]['nama']}"),
-                  subtitle: Text("Harga: Rp ${syncData[index]['harga']}"),
+                return Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text("Nama barang: ${syncData[index]['nama']}"),
+                      Text("Harga: Rp ${syncData[index]['harga']}"),
+                      Text("Stock: tersedia ${syncData[index]['stock']}"),
+                      const Divider(
+                        color: Colors.black,
+                        height: 25,
+                        thickness: 2,
+                        // indent: 5,
+                        // endIndent: 5,
+                      ),
+                    ],
+                  ),
                 );
               },
             ),
